@@ -9,6 +9,8 @@ Design of a battery cannister for diving purposes
 ## BMS Stage
 
 ## MCU & Buck Stage
+The MCU and Buck Stage steps down the battery voltage, reads the switch state and toggles the output. 
+
 
 ### Performance of Buck Converter
 
