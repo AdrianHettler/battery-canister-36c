@@ -6,8 +6,11 @@ Design of a battery cannister for diving purposes
 # Mechanical
 
 # Electrical
+## BMS Stage
 
-## Performance of Buck Converter
+## MCU & Buck Stage
+
+### Performance of Buck Converter
 
 # Software
 
