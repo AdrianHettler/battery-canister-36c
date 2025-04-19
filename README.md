@@ -7,5 +7,7 @@ Design of a battery cannister for diving purposes
 
 # Electrical
 
+## Performance of Buck Converter
+
 # Software
 
