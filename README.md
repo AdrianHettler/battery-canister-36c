@@ -14,9 +14,10 @@ A total of 36 Sanyo NCR18650GS Li-ion batteries in a 6p6s arrangement are used. 
 ## BMS Stage
 A Texas Instruments (TI) BQ40Z80 battery pack manager is used as primary protection for the battery pack. It has a full array of protection features (voltage, current, temperature, charge timeout, charge & discharge fets, AFE), uses gas gauging to determine and display the exact state of charge and is able to balance cells while charging or at rest. A TI BQ77207 battery protector serves as secondary protection in the event of failure of the primary system. The BQ77207 protects against over- and undervoltage and open-wire faults. A 30A SCF fuse (ITV9550) protects against over-current and short circuits. A resistive heating element inside of the fuse can be used to externally trigger the fuse in cause of a fault that requires permanent disabling of the battery pack.
 
-
-the fuse in case of a permanent fault.
 ![image](https://github.com/user-attachments/assets/42586dd4-7698-4513-bb58-d2e5bb588dc5)
+
+Utilizing the EV2400 interface adapter and the TI's Battery Management Studio (bqStudio) software, the BQ40Z80 IC can be programmed. 
+
 
 
 
