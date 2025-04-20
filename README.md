@@ -15,11 +15,13 @@ A total of 36 batteries in a 6p6s arrangement
 
 ## BMS Stage
 
-![image](https://github.com/user-attachments/assets/dd29fb37-7613-4e50-9edf-47205302bb6b)
+![image](https://github.com/user-attachments/assets/42586dd4-7698-4513-bb58-d2e5bb588dc5)
+
 
 ## MCU & Buck Stage
 The MCU & Buck Stage is a pcb containing a Texas Instruments (TI) LM5146 synchronous buck DC/DC converter to step down the battery voltage to a constant value
-![image](https://github.com/user-attachments/assets/25ae875c-627e-42ab-8d7f-50811e8e76fe)
+![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
+
 
 
 ### Performance of Buck Converter
