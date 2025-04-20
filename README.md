@@ -23,7 +23,9 @@ Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStu
 
 
 ## MCU & Buck Stage
-The MCU & Buck Stage is a pcb containing a Texas Instruments (TI) LM5146 synchronous buck DC/DC converter to step down the battery voltage to a constant value
+A TI LM5146 synchronous buck DC/DC converter is used to step down the battery voltage to a constant value. A STM32L031 microcontroller is used to 
+
+
 ![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
 
 
