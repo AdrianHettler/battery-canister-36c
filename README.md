@@ -9,7 +9,7 @@ Design of a battery cannister for diving purposes
 The main components of the electrical system consist of two printed circuit boards (PCBs) and the batteries. The first PCB (BMS Stage) is integrated into the battery pack and is used to monitor, protect and balance the pack. The second PCB (MCU & Buck Stage) steps down the battery pack voltage to a constant output voltage and monitors and controls the switches and output.
 
 ## Batteries
-A total of 36 Sanyo NCR18650GS Li-ion batteries in a 6p6s arrangement are used. The pack provides a nominal voltage of 21.6V, a charge capacity of 20.7Ah and a energy capacity of 447.12Wh. The single batteries are spot welded together with 0.2 x 0.6mm nickel strips. Three NTC therminstors are integrated in the pack to provide temperature readings to the BMS stage.
+A total of 36 Sanyo NCR18650GS Li-ion batteries in a 6p6s arrangement are used. The pack provides a nominal voltage of 21.6V, a charge capacity of 20.7Ah and a energy capacity of 447.12Wh. The battery voltage is not a fixed value and depends on the state of charge of the cell. Hence, the pack voltage ranges from a minimum of 15V to a maximum of 25.2V. The single batteries are spot welded together with 0.2 x 0.6mm nickel strips. Three NTC therminstors are integrated in the pack to provide temperature readings to the BMS stage.
 
 
 
