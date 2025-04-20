@@ -16,7 +16,7 @@ A Texas Instruments (TI) BQ40Z80 battery pack manager is used as primary protect
 
 ![image](https://github.com/user-attachments/assets/42586dd4-7698-4513-bb58-d2e5bb588dc5)
 
-Utilizing the EV2400 interface adapter and the TI's Battery Management Studio (bqStudio) software, the BQ40Z80 IC can be programmed. 
+Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStudio) software, the BQ40Z80 IC can be programmed. After configuring the IC according to the used hardware, a learning cycle that determines the resistance and the total chemical capacity of the battery, needs to be performed.
 
 
 
