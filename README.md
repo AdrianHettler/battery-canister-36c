@@ -23,12 +23,11 @@ Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStu
 
 
 ## MCU & Buck Stage
-A TI LM5146 synchronous buck DC/DC converter is used to step down the battery voltage to a constant value. A STM32L031 microcontroller is used to for following tasks: 
+A TI LM5146 synchronous buck DC/DC converter is used to step down the battery voltage to a constant value. A STM32L031 microcontroller is used for following tasks: 
 * Check state of switch/botton
-* Switch mosfet
-* Check temperature of the pcb
-* Check the stepped down output voltage
-* Check the input voltage
+* Switching of mosfets
+* Monitoring of temperature of the pcb
+* Monitoring of input and stepped down output voltage
 * Control of a buzzer
 
 
