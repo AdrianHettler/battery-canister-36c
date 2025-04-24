@@ -2,9 +2,9 @@
 Design of a battery cannister for diving purposes
 
 > [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
->
-> 
+> Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
+
+
 # Mechanical
 
 # Electrical
