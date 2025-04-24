@@ -23,7 +23,7 @@ Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStu
 ## MCU & Buck Stage
 A TI LM5146 synchronous buck DC/DC converter is used to step down the battery voltage to a constant value. A STM32L031 microcontroller is used for following tasks: 
 * Check state of switch / button
-* Switching of mosfets
+* Switching of MOSFETs
 * Monitoring of temperature of the pcb
 * Monitoring of input voltage and stepped down output voltage
 * Control of buzzer
@@ -31,7 +31,7 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
 
 ![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
 
-Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter of. This is done by connecting the second channel of the toggle switch in series with the enable pin of the converter. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power-mosfets on and off and checks the voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected.
+Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter of. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET.
 
 
 
