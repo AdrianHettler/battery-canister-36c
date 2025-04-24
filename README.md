@@ -1,7 +1,10 @@
 # battery-canister-36c
 Design of a battery cannister for diving purposes
 
-
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+>
+> 
 # Mechanical
 
 # Electrical
