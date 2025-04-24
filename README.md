@@ -18,20 +18,14 @@ A Texas Instruments (TI) BQ40Z80 battery pack manager is used as primary protect
 
 Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStudio) software, the BQ40Z80 IC can be programmed. After configuring the IC according to the used hardware, a learning cycle that determines the resistance and the total chemical capacity of the battery, needs to be performed.
 
-
-
-
-
 ## MCU & Buck Stage
 A TI LM5146 synchronous buck DC/DC converter is used to step down the battery voltage to a constant value. A STM32L031 microcontroller is used for following tasks: 
 * Check state of switch/botton
 * Switching of mosfets
 * Monitoring of temperature of the pcb
 * Monitoring of input and stepped down output voltage
-* Control of a buzzer
-* EN-/Disabling of buck converter
-
-
+* Control of buzzer
+* Enabling & disabling of buck converter
 
 ![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
 
