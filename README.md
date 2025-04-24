@@ -25,11 +25,17 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
 * Check state of switch / button
 * Switching of mosfets
 * Monitoring of temperature of the pcb
-* Monitoring of input and stepped down output voltage
+* Monitoring of input voltage and stepped down output voltage
 * Control of buzzer
 * Enabling & disabling of buck converter
 
 ![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
+
+Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter of. This is done by connecting the second channel of the toggle switch in series with the enable pin of the converter. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power-mosfets on and off and checks the voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected.
+
+
+
+
 
 
 
