@@ -1,5 +1,4 @@
-# battery-canister-36c
-Design of a battery cannister for diving purposes
+# Design of a battery cannister for diving purposes
 
 > [!CAUTION]
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
