@@ -3,9 +3,11 @@
 > [!CAUTION]
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
 
-
-
 # Mechanical
+![image](https://github.com/user-attachments/assets/6fa03b53-8e0f-4009-9a9b-ca2c3394c98d)
+
+
+
 
 # Electrical
 The main components of the electrical system consist of two printed circuit boards (PCBs) and the batteries. The first PCB (BMS Stage) is integrated into the battery pack and is used to monitor, protect and balance the pack. The second PCB (MCU & Buck Stage) steps down the battery pack voltage to a constant output voltage and monitors and controls the switches and output. The PCBs were designed in KiCad, hand assembled and reflow soldered in a modified toaster oven.
@@ -31,12 +33,7 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
 
 ![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
 
-Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter of. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET.
-
-
-
-
-
+Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter off. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET.
 
 
 ### Performance of Buck Converter
