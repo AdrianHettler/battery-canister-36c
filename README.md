@@ -29,6 +29,7 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
 * Monitoring of temperature of the pcb
 * Monitoring of input and stepped down output voltage
 * Control of a buzzer
+* EN-/Disabling of buck converter
 
 
 
