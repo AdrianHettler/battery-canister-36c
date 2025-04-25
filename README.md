@@ -38,7 +38,11 @@ Due to the fact that the step down converter uses ~3W while idling without load,
 
 ### Performance of Buck Converter
 
-![efficiency](https://github.com/user-attachments/assets/dac16b3d-7190-46ab-b40d-97e6c90e2b9d)
+
+<p align="center">
+  <img src="https://github.com/AdrianHettler/battery-canister-36c/tree/main/electrical/buck_mcu_stage/efficiency.png?raw=true" alt="Efficiency"/>
+</p>
+
 
 ![losses](https://github.com/user-attachments/assets/04e1278c-4518-4973-8c1c-f29c29297d2f)
 
