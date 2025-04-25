@@ -18,7 +18,10 @@ A total of 36 Sanyo NCR18650GS Li-ion batteries in a 6p6s arrangement are used. 
 ## BMS Stage
 A Texas Instruments (TI) BQ40Z80 battery pack manager is used as primary protection for the battery pack. It has a full array of protection features (voltage, current, temperature, charge timeout, charge & discharge fets, AFE), uses gas gauging to determine and display the exact state of charge and is able to balance cells while charging or at rest. A TI BQ77207 battery protector serves as secondary protection in the event of failure of the primary system. The BQ77207 protects against over- and undervoltage and open-wire faults. A 30A SCF fuse (ITV9550) protects against over-current and short circuits. A resistive heating element inside of the fuse can be used to externally trigger the fuse in cause of a fault that requires permanent disabling of the battery pack.
 
-![image](https://github.com/user-attachments/assets/42586dd4-7698-4513-bb58-d2e5bb588dc5)
+
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/9nHfqQv.png"> 
+</p>
 
 Utilizing the EV2400 interface adapter and TI's Battery Management Studio (bqStudio) software, the BQ40Z80 IC can be programmed. After configuring the IC according to the used hardware, a learning cycle that determines the resistance and the total chemical capacity of the battery, needs to be performed.
 
@@ -30,8 +33,9 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
 * Monitoring of input voltage and stepped down output voltage
 * Control of buzzer
 * Enabling & disabling of buck converter
-
-![image](https://github.com/user-attachments/assets/885c1812-9ddb-4c33-a522-844a1277b3f2)
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/jrjpIgM.png"> 
+</p>
 
 Due to the fact that the step down converter uses ~3W while idling without load, it is very important to be able to switch the buck converter off. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET.
 
