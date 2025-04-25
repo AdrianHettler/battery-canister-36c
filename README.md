@@ -43,6 +43,10 @@ Due to the fact that the step down converter uses ~3W while idling without load,
     <img width="80%" src="https://i.imgur.com/pkEGXq9.png"> 
 </p>
 
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/s4CqrV6.png"> 
+</p>
+
 
 
 
