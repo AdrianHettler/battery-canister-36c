@@ -42,7 +42,7 @@ Due to the fact that the step down converter uses ~3W while idling without load,
 
 ### Performance of Buck Converter
 
-
+Due to conduction, switching and inductor losses, the buck converter does not run at 100% efficiency.
 <p align="center" width="100%">
     <img width="80%" src="https://i.imgur.com/pkEGXq9.png"> 
 </p>
