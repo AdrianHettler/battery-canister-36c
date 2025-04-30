@@ -48,6 +48,15 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+uint32_t adc_buffer[3]; //[0]: v_out / [1]: v_in / [2]: temp
+float v_out = 0;
+float v_in = 0;
+float temp = 0;
+
+#define VOUT_MAX 13
+#define VIN_MAX 30
+#define TEMP_MAX 70
+#define STOP_AFTER_H 4 //stop after 4h
 
 /* USER CODE END PV */
 
@@ -64,6 +73,30 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+float get_v_out()
+ {
+	return (((float) (adc_buffer[0] - 28) / 4095.f) * 3.3f* (75.0f + 20.0f)) / 20.0f;
+ }
+
+ float get_v_in()
+ {
+	 return (((float) (adc_buffer[1] - 25) / 4095.f) * 3.3f* (75.0f + 8.25f)) / 8.25f;
+ }
+
+ float get_temperature()
+ {
+
+
+	           temp = (((0.67f - 3.3f) * 1000.0) /1.61f) + 130.0f;
+
+	           return temp;
+	//float v_temp_inside = 3.3f*(float)adc_buffer[2]/4095.f;
+	//return (1.f/((1.f/298.15f) + (1.f/3435.f) * log((v_temp_inside)/(3.3f-v_temp_inside))))-273.15f;
+ }
+
+
+
+
 
 /* USER CODE END 0 */
 
@@ -71,48 +104,139 @@ static void MX_USART2_UART_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
+int main(void) {
 
-  /* USER CODE BEGIN 1 */
+	/* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
+	/* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
+	/* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
 
-  /* USER CODE BEGIN Init */
+	/* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+	/* USER CODE END Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
+	/* Configure the system clock */
+	SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
+	/* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit */
+	/* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_ADC_Init();
-  MX_TIM2_Init();
-  MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	MX_DMA_Init();
+	MX_ADC_Init();
+	MX_TIM2_Init();
+	MX_USART2_UART_Init();
 
-  /* USER CODE END 2 */
+	/* USER CODE BEGIN 2 */
+	/*#define ADC_VOUT_Pin GPIO_PIN_2
+	 #define ADC_VOUT_GPIO_Port GPIOA
+	 #define TIM_BUZZER_Pin GPIO_PIN_5
+	 #define TIM_BUZZER_GPIO_Port GPIOA
+	 #define ADC_VIN_Pin GPIO_PIN_6
+	 #define ADC_VIN_GPIO_Port GPIOA
+	 #define GPIO_LOAD1_Pin GPIO_PIN_7
+	 #define GPIO_LOAD1_GPIO_Port GPIOA
+	 #define GPIO_LOAD2_Pin GPIO_PIN_0
+	 #define GPIO_LOAD2_GPIO_Port GPIOB
+	 #define GPIO_BUCK_DISABLE_Pin GPIO_PIN_15
+	 #define GPIO_BUCK_DISABLE_GPIO_Port GPIOA
+	 #define GPIO_FB_DIVIDER_ADD_Pin GPIO_PIN_3
+	 #define GPIO_FB_DIVIDER_ADD_GPIO_Port GPIOB
+	 #define GPIO_BTN_L1_Pin GPIO_PIN_6
+	 #define GPIO_BTN_L1_GPIO_Port GPIOB
+	 #define GPIO_BTN_L2_Pin GPIO_PIN_7
+	 #define GPIO_BTN_L2_GPIO_Port GPIOB*/
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
+	HAL_ADC_Start_DMA(&hadc, adc_buffer, 3);
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
+	uint32_t start_time = HAL_GetTick(); //time in ms since startup
+	uint32_t last_load_check = HAL_GetTick(); //time in ms since startup
+
+	/* USER CODE END 2 */
+
+
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
+	while (1) {
+		float v_out = get_v_out();
+
+		//check output voltage
+		if (v_out > VOUT_MAX) {
+			//HAL_GPIO_WritePin(GPIO_LOAD1_GPIO_Port, GPIO_LOAD1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIO_LOAD2_GPIO_Port, GPIO_LOAD2_Pin,GPIO_PIN_RESET);
+			HAL_Delay(1000);
+			continue;
+		}
+
+
+		//manage max time running
+		if((start_time + 3600 * 1000 * STOP_AFTER_H) < HAL_GetTick())
+		{
+			//disable buck converter
+			HAL_GPIO_WritePin(GPIO_BUCK_DISABLE_GPIO_Port, GPIO_BUCK_DISABLE_Pin,GPIO_PIN_SET);
+
+			//disable mosfets
+			HAL_GPIO_WritePin(GPIO_LOAD2_GPIO_Port, GPIO_LOAD2_Pin,GPIO_PIN_RESET);
+			//HAL_GPIO_WritePin(GPIO_LOAD2_GPIO_Port, GPIO_LOAD2_Pin,GPIO_PIN_RESET);
+			HAL_Delay(1000);
+			continue;
+		}
+
+		//routine to check if load is attached when turned on
+		if(HAL_GPIO_ReadPin(GPIO_BTN_L2_GPIO_Port,GPIO_BTN_L2_Pin) && (last_load_check + 1000 * 15) < HAL_GetTick())
+		{
+
+			HAL_GPIO_WritePin(GPIO_BUCK_DISABLE_GPIO_Port, GPIO_BUCK_DISABLE_Pin,GPIO_PIN_RESET);
+
+			HAL_Delay(100);
+
+			float v_in_buck_enabled = get_v_in();
+
+			HAL_GPIO_WritePin(GPIO_BUCK_DISABLE_GPIO_Port, GPIO_BUCK_DISABLE_Pin,GPIO_PIN_SET);
+
+			HAL_Delay(100);
+
+			float v_in_buck_disabled = get_v_in();
+
+			if(v_in_buck_enabled < v_in_buck_disabled - 0.1f)
+			{
+				HAL_GPIO_WritePin(GPIO_BUCK_DISABLE_GPIO_Port, GPIO_BUCK_DISABLE_Pin,GPIO_PIN_RESET);
+			}
+			else
+			{
+			//	TIM2->ARR = (1000000UL / 300) - 1; // Set The PWM Frequency
+			//	TIM2->CCR1 = 200; // Set Duty Cycle 50%
+			//	HAL_Delay(100); // Wait For The Tone Duration
+			//	TIM2->CCR1 = 0; // Set Duty Cycle 50%
+			}
+
+			last_load_check = HAL_GetTick();
+		}
+
+		//manage input
+		if (HAL_GPIO_ReadPin(GPIO_BTN_L2_GPIO_Port,GPIO_BTN_L2_Pin) && v_out <= VOUT_MAX)
+			HAL_GPIO_WritePin(GPIO_LOAD2_GPIO_Port, GPIO_LOAD2_Pin,GPIO_PIN_SET);
+		else
+			HAL_GPIO_WritePin(GPIO_LOAD2_GPIO_Port, GPIO_LOAD2_Pin,GPIO_PIN_RESET);
+
+
+
+
+
+		HAL_Delay(50);
+
+		/* USER CODE END WHILE */
+
+		/* USER CODE BEGIN 3 */
+	}
+	/* USER CODE END 3 */
 }
 
 /**
@@ -132,7 +256,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_DIV4;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = 0;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_5;
@@ -184,17 +310,20 @@ static void MX_ADC_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc.Instance = ADC1;
-  hadc.Init.OversamplingMode = DISABLE;
-  hadc.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
+  hadc.Init.OversamplingMode = ENABLE;
+  hadc.Init.Oversample.Ratio = ADC_OVERSAMPLING_RATIO_32;
+  hadc.Init.Oversample.RightBitShift = ADC_RIGHTBITSHIFT_5;
+  hadc.Init.Oversample.TriggeredMode = ADC_TRIGGEREDMODE_SINGLE_TRIGGER;
+  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV16;
   hadc.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc.Init.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  hadc.Init.SamplingTime = ADC_SAMPLETIME_79CYCLES_5;
   hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
   hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc.Init.ContinuousConvMode = DISABLE;
+  hadc.Init.ContinuousConvMode = ENABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
   hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc.Init.DMAContinuousRequests = DISABLE;
+  hadc.Init.DMAContinuousRequests = ENABLE;
   hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc.Init.LowPowerAutoWait = DISABLE;
