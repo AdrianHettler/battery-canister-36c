@@ -60,3 +60,10 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 # Assembly
 
 ## Bill of Materials
+
+
+# Lessons Learned
+
+
+
+
