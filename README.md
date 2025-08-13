@@ -5,13 +5,13 @@
 
 # Design Guidelines and Requirements
 The design guidelines and requirements are outlind in the following bullet points:
-* Constant output voltage (Nominal 12V)
-* No exposed O-Rings
 * Runtime BZ400h (115W): 3h -> Capacity: > 345Wh
-* Use of Toggle Switches
-* PWM output control
-* Option for single and dual output
+* Constant output voltage (Nominal 12V)
 * Voltage boost to 13V
+* PWM output control
+* Use of toggle switches
+* Option for single and dual output
+* No exposed o-rings
 * Compact design
 
 # Mechanical
