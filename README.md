@@ -4,9 +4,14 @@
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
 
 # Design Guidelines and Requirements
-
-
-
+The design guidelines and requirements are outlind in the following bullet points:
+* Constant output voltage (Nominal 12V)
+* No exposed o-rings
+* Runtime BZ400h (115W): 3h -> Capacity: > 345Wh
+* Use of Toggle Switches
+* PWM output control
+* Option for single and dual output
+* Voltage Boost to 13V
 
 # Mechanical
 ![image](https://github.com/user-attachments/assets/6fa03b53-8e0f-4009-9a9b-ca2c3394c98d)
@@ -42,7 +47,7 @@ A TI LM5146 synchronous buck DC/DC converter is used to step down the battery vo
     <img width="80%" src="https://i.imgur.com/jrjpIgM.png"> 
 </p>
 
-Due to the fact that the step down converter uses ~1-3W while idling without load, it is very important to be able to switch the buck converter off. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET. The pcb can support dual input / output.
+Due to the fact that the step down converter uses ~1-3W while idling without load, it is very important to be able to switch the buck converter off. This is done by connecting the second channel of the toggle switch in series with the converter's enable pin. If the switch is accidently put in the on-state, a different protection is used. The battery pack voltage drops when a load is applied. A monitoring routine is therefore implemented that sporadically switches the power MOSFETs on and off and checks the battery pack voltages in these states. If a substential drop-of is detected, it is concluded that an acutal load is connected. Otherwise the buck convertes is disabled by pulling the enable pin to ground with the help of a N-channel MOSFET. The pcb can support dual input / output. The step down converter is optimized to reach higher efficiencies with increasing loads.
 
 
 ### Performance of Buck Converter
