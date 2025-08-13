@@ -3,6 +3,11 @@
 > [!CAUTION]
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
 
+# Design Guidelines and Requirements
+
+
+
+
 # Mechanical
 ![image](https://github.com/user-attachments/assets/6fa03b53-8e0f-4009-9a9b-ca2c3394c98d)
 
