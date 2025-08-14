@@ -87,10 +87,12 @@ Following are some pictures of the assembly process
 </p>
 <p float="left">
   <img src="https://i.imgur.com/CKXdxZk.jpeg" width="45%" />
-  <img src="https://i.imgur.com/ypLHwsT.jpeg" width="45%" /> 
 </p>
 <p align="center" width="100%">
-    <img width="50%" src="https://i.imgur.com/CKXdxZk.jpeg"> 
+    <img width="50%" src="https://i.imgur.com/ypLHwsT.jpegg"> 
+</p>
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/pLP8f8W.jpeg"> 
 </p>
 
 
