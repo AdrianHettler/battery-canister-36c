@@ -77,16 +77,23 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 # Assembly
 Following are some pictures of the assembly process
 
-<p float="left">
-  <img src="https://i.imgur.com/gzNsfec.jpeg" width="45%" />
-  <img src="https://i.imgur.com/fmLPuRG.jpeg" width="45%" /> 
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/gzNsfec.jpeg"> 
 </p>
-<p float="left">
-  <img src="https://i.imgur.com/6xT9Dvq.jpeg" width="45%" />
-  <img src="https://i.imgur.com/XJopzxJ.jpeg" width="45%" /> 
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/fmLPuRG.jpeg"> 
 </p>
-<p float="left">
-  <img src="https://i.imgur.com/CKXdxZk.jpeg" width="45%" />
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/6xT9Dvq.jpe"> 
+</p>
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/XJopzxJ.jpeg"> 
+</p>
+
+
+
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/CKXdxZk.jpeg"> 
 </p>
 <p align="center" width="100%">
     <img width="50%" src="https://i.imgur.com/ypLHwsT.jpegg"> 
