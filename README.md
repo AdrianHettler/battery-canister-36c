@@ -25,6 +25,8 @@ The design guidelines and requirements are outlind in the following bullet point
 * Compact design
 
 # Mechanical
+The lid and cannister are sealed by two radial o-rings. 
+
 
 <p align="center" width="100%">
     <img width="80%" src="https://i.imgur.com/207SAxC.png"> 
