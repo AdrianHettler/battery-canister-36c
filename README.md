@@ -105,6 +105,13 @@ Following are some pictures of the assembly process
 
 
 # Testing
+To test the watertightness of the cannister, it is set into a home build preassure chamber, filled with water and pressurized to 8bar. After two hours, the inside is checked for leaks.
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/3Mn8mei.jpeg"> 
+</p>
+
+
+
 
 # Lessons Learned
 * Delrin from China can be porous
