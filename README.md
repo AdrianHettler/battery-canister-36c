@@ -82,6 +82,23 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 # Assembly
 
 ## Bill of Materials
+| Part  | Price |
+| ------------- | ------------- |
+| Lid  |  99€ |
+| Cannister  | 185€  |
+| Cable Gland  | 24€  |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+
+
+
+
+
 
 # Testing
 
