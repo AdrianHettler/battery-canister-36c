@@ -83,8 +83,8 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 Following are pictures of the assembly process
 
 <p float="left">
-  <img src="https://i.imgur.com/gzNsfec.jpeg" width="50" />
-  <img src="https://i.imgur.com/fmLPuRG.jpeg" width="50" /> 
+  <img src="https://i.imgur.com/gzNsfec.jpeg" width="45%" />
+  <img src="https://i.imgur.com/fmLPuRG.jpeg" width="45%" /> 
 </p>
 
 
