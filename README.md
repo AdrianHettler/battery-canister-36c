@@ -23,9 +23,10 @@ The design guidelines and requirements are outlind in the following bullet point
 
 # Mechanical
 
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/207SAxC.png"> 
+</p>
 
-
-![image](https://github.com/user-attachments/assets/6fa03b53-8e0f-4009-9a9b-ca2c3394c98d)
 
 # Electrical
 The main components of the electrical system consist of two printed circuit boards (PCBs) and the batteries. The first PCB (BMS Stage) is integrated into the battery pack and is used to monitor, protect and balance the pack. The second PCB (MCU & Buck Stage) steps down the battery pack voltage to a constant output voltage and monitors and controls the switches and output. The PCBs were designed in KiCad, hand assembled and reflow soldered in a modified toaster oven.
