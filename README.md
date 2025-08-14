@@ -88,6 +88,7 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 # Lessons Learned
 * Delrin from China can be porous
 * Double and tripple check schematics
+* It might be easier to select o-rings from the actual dimension of the manufactured part
 
 
 
