@@ -1,4 +1,4 @@
-# Design of a Battery Cannister for Diving Purposes
+# Design of a Battery Canister for Diving Purposes
 
 > [!CAUTION]
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
@@ -25,7 +25,7 @@ The design guidelines and requirements are outlind in the following bullet point
 * Compact design
 
 # Mechanical
-The lid and cannister are sealed by two radial o-rings. 
+The lid and canister are sealed by two radial o-rings. 
 
 
 <p align="center" width="100%">
