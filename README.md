@@ -17,7 +17,7 @@ The design guidelines and requirements are outlind in the following bullet point
 
 # Mechanical
 <p align="center" width="100%">
-    <img width="80%" src="[https://i.imgur.com/9nHfqQv.png](https://i.imgur.com/KP85A0i.jpeg)"> 
+    <img width="80%" src="https://i.imgur.com/KP85A0i.jpeg"> 
 </p>
 
 
