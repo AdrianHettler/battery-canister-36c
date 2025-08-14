@@ -66,8 +66,6 @@ Due to the fact that the step down converter uses ~1-3W while idling without loa
 
 Due to conduction, switching and inductor losses, the buck converter does not run at 100% efficiency. The diagramms below show the efficiency and power losses at different input voltages (battery voltage) and under different loads. 
 
-
-
 <p align="center" width="100%">
     <img width="80%" src="https://i.imgur.com/pkEGXq9.png"> 
 </p>
@@ -76,11 +74,8 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
     <img width="80%" src="https://i.imgur.com/s4CqrV6.png"> 
 </p>
 
-
-
-
 # Assembly
-Following are pictures of the assembly process
+Following are some pictures of the assembly process
 
 <p float="left">
   <img src="https://i.imgur.com/gzNsfec.jpeg" width="45%" />
@@ -94,10 +89,12 @@ Following are pictures of the assembly process
   <img src="https://i.imgur.com/CKXdxZk.jpeg" width="45%" />
   <img src="https://i.imgur.com/ypLHwsT.jpeg" width="45%" /> 
 </p>
-
-<p float="left">
-  <img src="[https://i.imgur.com/CKXdxZk.jpeg](https://i.imgur.com/pLP8f8W.jpeg)" width="45%" />
+<p align="center" width="100%">
+    <img width="50%" src="https://i.imgur.com/CKXdxZk.jpeg"> 
 </p>
+
+
+
 # Testing
 
 # Lessons Learned
