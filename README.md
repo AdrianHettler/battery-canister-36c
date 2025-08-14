@@ -86,6 +86,8 @@ Due to conduction, switching and inductor losses, the buck converter does not ru
 # Testing
 
 # Lessons Learned
+* Delrin from China can be porous
+* Double and tripple check schematics
 
 
 
