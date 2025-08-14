@@ -1,5 +1,9 @@
 # Design of a Battery Cannister for Diving Purposes
 
+<p align="center" width="100%">
+    <img width="100%" src="https://i.imgur.com/KP85A0i.jpeg"> 
+</p>
+
 > [!CAUTION]
 > Improper use of Li-ion batteries, including short circuits or mishandling, can pose serious risks, potentially resulting in fires or explosions.
 
@@ -16,9 +20,7 @@ The design guidelines and requirements are outlind in the following bullet point
 * Compact design
 
 # Mechanical
-<p align="center" width="100%">
-    <img width="80%" src="https://i.imgur.com/KP85A0i.jpeg"> 
-</p>
+
 
 
 ![image](https://github.com/user-attachments/assets/6fa03b53-8e0f-4009-9a9b-ca2c3394c98d)
