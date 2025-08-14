@@ -7,6 +7,9 @@
     <img width="80%" src="https://i.imgur.com/KP85A0i.jpeg"> 
 </p>
 
+<p align="center" width="100%">
+    <img width="80%" src="https://i.imgur.com/TwABVcS.jpeg"> 
+</p>
 
 
 # Design Guidelines and Requirements
