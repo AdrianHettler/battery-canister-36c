@@ -86,8 +86,18 @@ Following are pictures of the assembly process
   <img src="https://i.imgur.com/gzNsfec.jpeg" width="45%" />
   <img src="https://i.imgur.com/fmLPuRG.jpeg" width="45%" /> 
 </p>
+<p float="left">
+  <img src="https://i.imgur.com/6xT9Dvq.jpeg" width="45%" />
+  <img src="https://i.imgur.com/XJopzxJ.jpeg" width="45%" /> 
+</p>
+<p float="left">
+  <img src="https://i.imgur.com/CKXdxZk.jpeg" width="45%" />
+  <img src="https://i.imgur.com/ypLHwsT.jpeg" width="45%" /> 
+</p>
 
-
+<p float="left">
+  <img src="[https://i.imgur.com/CKXdxZk.jpeg](https://i.imgur.com/pLP8f8W.jpeg)" width="45%" />
+</p>
 # Testing
 
 # Lessons Learned
