@@ -25,7 +25,7 @@ The design guidelines and requirements are outlind in the following bullet point
 * Compact design
 
 # Mechanical
-The lid and canister are sealed by two radial o-rings. 
+The lid and canister are sealed by two radial o-rings. A spring plunger locks the lid to the can. The boot of the toggle switch acts as a over pressure relieve device.
 
 
 <p align="center" width="100%">
